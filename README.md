@@ -1,7 +1,7 @@
 # Smart_Parking_System
 
 ## 임베디드 시스템 최종보고서'
-**2조 : 배지호 박상원 김용빈 이재홍 **
+** 2조 : 배지호 박상원 김용빈 이재홍 **
 
 ---
 ## 목차 ##
@@ -85,3 +85,17 @@
 
 ## 사용법
 ![System Model](Images/System%20Model.png)
+### 프로그램을 실행하기 전에
+- 와이파이 통신을 진행하므로 모두 같은 와이파이에 연결되어 있어야 함.
+- 해당 코드들의 처음부분에 상수 값으로 IP_SERVER을 하였음. 메인 서버의 IP로 수정할 것.
+- 해당 코드들은 C언어와 파이썬으로 이루어져있음. C언어일 경우 컴파일 할때 -lcjson -lwiringPi 옵션을 추가할 것.
+- wiringPi를 사용하기 위해서는 프로그램 실행 전 꼭 sudo 명령어를 추가할 것.
+
+### 초음파 차량 유무 프로그램
+- ``` gcc -o client client.c -lcjson -lwiringPi```로 컴파일 가능
+- id(주차 자리), TRIG 핀 번호, ECHO 핀 번호, LED 핀 번호 순으로 옵션추가. 총 4개의 추가 옵션이 필수
+- ``` sudo ./client 1 15 25 18 ```
+- 해당 터미널에서 현재 프로그램의 상태를 출력함
+
+### 디스플레이 프로그램
+- ``` gcc -o display display.c -lcjson -lwiringPi -lpthread``` 로 컴파일 가능.
