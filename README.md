@@ -1,7 +1,7 @@
 # Smart_Parking_System
 
 ## 임베디드 시스템 최종보고서'
-** 2조 : 배지호 박상원 김용빈 이재홍 **
+2조 : 배지호 박상원 김용빈 이재홍
 
 ---
 ## 목차 ##
@@ -91,11 +91,26 @@
 - 해당 코드들은 C언어와 파이썬으로 이루어져있음. C언어일 경우 컴파일 할때 -lcjson -lwiringPi 옵션을 추가할 것.
 - wiringPi를 사용하기 위해서는 프로그램 실행 전 꼭 sudo 명령어를 추가할 것.
 
+### 중앙서버 프로그램
+- ```gcc -o server server.c -lcjson -lwiringPi -lpthread``` 로 컴파일 가능.
+- 추가 옵션 없음 ```sudo ./server```로 실행 가능
+
 ### 초음파 차량 유무 프로그램
-- ``` gcc -o client client.c -lcjson -lwiringPi```로 컴파일 가능
+- ```gcc -o client client.c -lcjson -lwiringPi```로 컴파일 가능
 - id(주차 자리), TRIG 핀 번호, ECHO 핀 번호, LED 핀 번호 순으로 옵션추가. 총 4개의 추가 옵션이 필수
-- ``` sudo ./client 1 15 25 18 ```
+- ex) ``` sudo ./client 1 15 25 18 ```
 - 해당 터미널에서 현재 프로그램의 상태를 출력함
 
 ### 디스플레이 프로그램
-- ``` gcc -o display display.c -lcjson -lwiringPi -lpthread``` 로 컴파일 가능.
+- ```gcc -o display display.c -lcjson -lwiringPi -lpthread``` 로 컴파일 가능.
+- 추가 옵션 없음 ```sudo ./display```로 실행 가능
+- 디스플레이 연결 시 GPIO 핀 번호와 코드 내 핀 번호가 일치하도록 설정이 필요함.
+- usleep 값 조정으로 디스플레이 갱신 속도 최적화 가능
+
+### 차량 번호 인식 프로그램
+- Number.py, inputKey.py 순으로 프로그램을 실행한다.
+- inputKey.py를 통해 프로그램이 w키를 입력하도록 하면 Number.py가 사진을 촬영하여 번호를 추출한다.
+- 해당 기능을 통해서만 아니라 w키를 직접 누름으로써도 사진 촬영이 가능하다.
+- 사진을 촬영하는 기준은 차량 유무 감지인데 이는 다른 프로그램이 신호를 보내준다.
+
+### 
