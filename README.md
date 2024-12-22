@@ -164,7 +164,7 @@
 - 핸드폰 어플리케이션 접속
 
 ## 7. 시현 동영상
-링크
+[https://youtu.be/YR0sNVt3elI](https://youtu.be/YR0sNVt3elI)
 
 ## 8. 한계점
 - 라즈베리파이의 성능으로 인해 주차장의 크기를 확장시킬 수 없었음.
